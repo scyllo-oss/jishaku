@@ -35,7 +35,7 @@ __all__ = (
     "setup",
 )
 
-STANDARD_FEATURES = (dcommands.Cog, VoiceFeature, GuildFeature, FilesystemFeature, InvocationFeature, ShellFeature, SQLFeature, PythonFeature, ManagementFeature, RootCommand)
+STANDARD_FEATURES = (VoiceFeature, GuildFeature, FilesystemFeature, InvocationFeature, ShellFeature, SQLFeature, PythonFeature, ManagementFeature, RootCommand)
 
 OPTIONAL_FEATURES: typing.List[typing.Type[Feature]] = []
 
@@ -47,7 +47,7 @@ else:
     OPTIONAL_FEATURES.insert(0, YouTubeFeature)
 
 
-class Jishaku(*OPTIONAL_FEATURES, *STANDARD_FEATURES):  # type: ignore  # pylint: disable=too-few-public-methods
+class Jishaku(dcommands.Cog, *OPTIONAL_FEATURES, *STANDARD_FEATURES):  # type: ignore  # pylint: disable=too-few-public-methods
     """
     The frontend subclass that mixes in to form the final Jishaku cog.
     """
