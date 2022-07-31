@@ -15,6 +15,7 @@ import inspect
 import typing
 
 from discord.ext import commands
+from disnake.ext import commands as dcommands
 
 from jishaku.features.baseclass import Feature
 from jishaku.features.filesystem import FilesystemFeature
@@ -34,7 +35,7 @@ __all__ = (
     "setup",
 )
 
-STANDARD_FEATURES = (VoiceFeature, GuildFeature, FilesystemFeature, InvocationFeature, ShellFeature, SQLFeature, PythonFeature, ManagementFeature, RootCommand)
+STANDARD_FEATURES = (dcommands.Cog, VoiceFeature, GuildFeature, FilesystemFeature, InvocationFeature, ShellFeature, SQLFeature, PythonFeature, ManagementFeature, RootCommand)
 
 OPTIONAL_FEATURES: typing.List[typing.Type[Feature]] = []
 
